@@ -1,5 +1,7 @@
 # test-alive
-Run tests live in a REPL
+Bring your JavaScript tests to life.
+
+The way this runs tests makes it possible to have a live coding experience while you edit your tests. You have to use it in conjunction with Vim and the code.vim plugin to get this experience.
 
 Ideas and notes to get this working:
 
