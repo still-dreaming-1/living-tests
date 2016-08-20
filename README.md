@@ -1,4 +1,4 @@
-# mocha-shot
+# mocha-shot [![Join the chat at https://gitter.im/still-dreaming-1/mocha-shot](https://badges.gitter.im/still-dreaming-1/mocha-shot.svg)](https://gitter.im/still-dreaming-1/mocha-shot?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Bring your mocha tests alive with mocha-shot. (as in live coding)
 
 Warning! This does not work at all yet. The code just illustrates the idea at this point.
