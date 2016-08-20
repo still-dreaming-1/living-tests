@@ -1,4 +1,4 @@
-# test-alive
+# mocha-shot
 Bring your mocha tests alive with mocha-shot! (as in live coding)
 
 Warning! This does not work at all yet. The code just illustrates the idea at this point.
