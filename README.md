@@ -1,4 +1,4 @@
-# live-node
+# test-alive
 Run tests live in a REPL
 
 Ideas and notes to get this working:
