@@ -1,0 +1,25 @@
+{
+  "name": "test-alive",
+  "version": "0.0.1",
+  "description": "Bring your JavaScript tests alive",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/still-dreaming-1/test-alive.git"
+  },
+  "keywords": [
+    "live",
+    "test",
+    "tests",
+    "testing"
+  ],
+  "author": "Jesse Dickey",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/still-dreaming-1/test-alive/issues"
+  },
+  "homepage": "https://github.com/still-dreaming-1/test-alive#readme"
+}
