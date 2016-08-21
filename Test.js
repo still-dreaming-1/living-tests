@@ -1,25 +1,16 @@
 "use strict"
 
-let test= (state={}) => {
+let Test= (state={}) => {
 	state._beforeEach= null;
 
 	state.beforeEach= (fun) => {
 		state._beforeEach= fun;
 	}
 
-	state.context= (description, fun) => {
-		fun();
-	}
-
-	state.describe= (description, fun) => {
-		fun();
-	}
-
-	state.it= (description, fun) => {
+	state.spec= (description) => {
 		if(state._beforeEach !== null)
 			state._beforeEach();
-		fun();
 	}
 }
 
-module.exports= test
+module.exports= Test
