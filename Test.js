@@ -7,7 +7,7 @@ let Test= (state={}) => {
 		state._beforeEach= fun;
 	}
 
-	state.spec= (description) => {
+	state.spec= () => {
 		if(state._beforeEach !== null)
 			state._beforeEach();
 	}
