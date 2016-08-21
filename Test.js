@@ -1,7 +1,7 @@
 "use strict"
 
 let Test= (state={}) => {
-	state._beforeEach= null;
+	state._beforeEach= null
 
 	state.beforeEach= (fun) => {
 		state._beforeEach= fun;
@@ -9,7 +9,7 @@ let Test= (state={}) => {
 
 	state.spec= () => {
 		if(state._beforeEach !== null)
-			state._beforeEach();
+			state._beforeEach()
 	}
 	return state
 }
