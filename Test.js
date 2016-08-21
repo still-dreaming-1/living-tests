@@ -11,6 +11,7 @@ let Test= (state={}) => {
 		if(state._beforeEach !== null)
 			state._beforeEach();
 	}
+	return state
 }
 
 module.exports= Test
