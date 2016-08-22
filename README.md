@@ -5,7 +5,7 @@ Warning! This workflow is so awesomely powerful that it is dangerous! It's like 
 
 Only the proof of concept is working so far. It is not a framework or CLI tool yet. But it will give you live feedback for the test you are writing, which is somewhat limited because there is know way to say "Run all my tests and tell me pass or fail".
 
-The way you write and run your tests makes it possible to have a live coding experience while you edit your tests. You will see very short error messages appear just to right of failing assertions. You have to use Vim as your editor with the code.vim plugin to get this experience.
+The way you write and run your tests makes it possible to have a live coding experience while you edit your tests. You will see very short error messages appear just to right of failing assertions. You have to use Vim or Neovim as your editor with the codi.vim plugin to get this experience.
 
 The way you write your test code will be a little different than other testing frameworks. You won't create functions or methods or closures with your assertions inside them. All your test code and assertions are written outside of any functions. This is necessary in order to get the live experience.
 
