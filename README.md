@@ -15,7 +15,7 @@ These instructions explain a combination of tools you can use to get this live t
 
 * Install Vim if you don't already have it installed. If you don't already know how to use Vim, trying to do live testing in it immediately is not a good place to start. Learn at least the basics of Vim first. I don't recommend using this with Neovim yet, but you can try it if you want. I have not had a good experience with that, but other people seem to be having a better experience with it than me.
 
-* Install the codi.vim Vim plugin. They are also working on getting it to work well with Neovim. If you really want to try it with Neovim they have a user/metakirby5 branch that has experimental support for Neovim.
+* Install the codi.vim Vim plugin. They are also working on getting it to work well with Neovim, but that is still in the early stages.
 
 * Create a test file ending with the .js file extension. Your intention might to be to write unit tests, integration tests, etc. Don't start writing any code yet.
 
