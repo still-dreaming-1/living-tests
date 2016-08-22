@@ -1,12 +1,14 @@
 // test setup code that will appear at the top of every test file
-let pathToTest= ''
-if(typeof __dirname === 'undefined') { // code directly entered into REPL
-	pathToTest= './Test.js'
+let pathToDir= ''
+// the REPL doesn't like if else without braces
+if(typeof __dirname === 'undefined') {
+	pathToDir= './' // code directly entered into REPL
 } else {
-	pathToTest= '../Test.js'
+	pathToDir= '../'
 }
-let Test= require(pathToTest)
+let Test= require(pathToDir + 'Test.js')
 let test= Test()
+let assert= require(pathToDir + 'assert.js')
 const beforeEach= test.beforeEach
 const spec= test.spec
 // variables used throughout the test should be attached to this state object. "this" can change meaning in different contexts, I'm more comfortable using a state object like so:
