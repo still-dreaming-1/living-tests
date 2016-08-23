@@ -1,8 +1,8 @@
 {
   "name": "living-tests",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "Bring your JavaScript tests alive",
-  "main": "livingTests.js",
+  "main": "living-tets.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
