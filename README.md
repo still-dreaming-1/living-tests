@@ -24,6 +24,7 @@ These instructions explain a combination of tools you can use to get this live t
 * Make sure you have that empty test file open in Vim and run the `:Codi` command from Vim. This will run everything in your current file through the node REPL. As you start typing code into the file, everything you write will be instantly run through the REPL, so it will be executing as you type, before you even save. Be careful what you type.
 
 * Look at the tests/Test_test.js file of this repository for an example and explanation of how to setup your test files and how to write tests in them. The concepts should seem familiar to you if you have used other testing frameworks, but the look of the code is still fairly unique because your code is not inside of functions or closures. You will have to do one thing differently from that example; All the code from the first line through the line where the livingTests variable is created can be replaced with a single line:
+
 `let livingTests= require('living-tests')`
 
 * Have fun writing / running your tests! You should see exception messages just to right of failing assertions.
