@@ -1,6 +1,6 @@
 {
-  "name": "test-alive",
-  "version": "0.0.1",
+  "name": "living-tests",
+  "version": "0.5.2",
   "description": "Bring your JavaScript tests alive",
   "main": "livingTests.js",
   "scripts": {
@@ -19,7 +19,7 @@
   "author": "Jesse Dickey",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/still-dreaming-1/test-alive/issues"
+    "url": "https://github.com/still-dreaming-1/living-tests/issues"
   },
-  "homepage": "https://github.com/still-dreaming-1/test-alive#readme"
+  "homepage": "https://github.com/still-dreaming-1/living-tests#readme"
 }
