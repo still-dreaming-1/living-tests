@@ -1,6 +1,6 @@
 "use strict"
 
-let Test= (state={}) => {
+let test= (state={}) => {
 	state._beforeEach= null
 
 	state.beforeEach= (fun) => {
@@ -14,4 +14,4 @@ let Test= (state={}) => {
 	return state
 }
 
-module.exports= Test
+module.exports= test

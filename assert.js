@@ -1,13 +1,13 @@
 "use strict"
 
-let assert= require('assert')
+let originalAssert= require('assert')
 
-let Assert= (state={}) => {
+let assert= (state={}) => {
 	state.equal= (expected, actual) => {
-		assert.equal(expected, actual)
+		originalAssert.equal(expected, actual)
 		return '✔' // returning a check mark to indicate the assertion passed. This is needed because the REPL will output whatever this function returns.
 	}
 	return state
 }
 
-module.exports= Assert()
+module.exports= assert
