@@ -23,6 +23,9 @@ These instructions explain a combination of tools you can use to get this live t
 
 * Make sure you have that empty test file open in Vim and run the `:Codi` command from Vim. This will run everything in your current file through the node REPL. As you start typing code into the file, everything you write will be instantly run through the REPL, so it will be executing as you type, before you even save. Be careful what you type.
 
-* Look at the tests/Test_test.js file of this repository for an example and explanation of how to setup your test files and how to write tests in them. The concepts should seem familiar to you if you have used other testing frameworks, but the look of the code is still fairly unique because your code is not inside of functions or closures. You will have to do one thing differently from that example; All the code from the first line through the line where the livingTests variable is created can be replaced with a single line: `let livingTests= require('living-tests')`
+* Add this line to the top of each tests:
 
-* Have fun writing / running your tests! You should see exception messages just to right of failing assertions.
+`let assert= require('living-tests')`
+Create a setup() function right there in your test file that will setup each test. It probably should not take any parameters, but I guess it could if you really wanted it to. Call it as necessary before each test. The setup() function is not part of any framework or library, you could technically name it whatever you want. It is just a function you are creating and calling. Other than the setup function, keep all your test code outside of any functions. That is the key to getting the live testing experience. Make all your assertions using `assert.equal(expected, actual)`. That will ensure you see a check mark next to passing assertions. Use a single blank line to visually separate each test. Your tests are not going run isolated like they would in other testing frameworks. It is up to you to make sure any shared state between tests gets reset inside your setup() function. You actually don't need to make a setup() function if your tests don't share state.
+
+* Have fun writing / running your tests! You should see exception messages just to right of failing assertions and checkmarks for passing ones.
