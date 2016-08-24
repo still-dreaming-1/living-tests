@@ -1,4 +1,5 @@
-// test setup code that will appear at the top of every test file
+// This is an example of how to write a test for living-tests. I am using living-tests to test itself, or in this case, to test the concept / instructions for writing these tests
+// You won't need this code in your own tests:
 let pathToDir= ''
 // the REPL doesn't like if else without braces
 if(typeof __dirname === 'undefined') {
@@ -6,25 +7,22 @@ if(typeof __dirname === 'undefined') {
 } else {
 	pathToDir= '../'
 }
-let livingTests= require(pathToDir + 'index')
-let test= livingTests.test()
-let assert= livingTests.assert()
-const beforeEach= test.beforeEach
-const spec= test.spec
-// variables used throughout the test should be attached to this state object. "this" can change meaning in different contexts, I'm more comfortable using a state object like so:
+// you will need this require in your own tests, but yours can be simpler. You can just use "let assert= require('living-tests')".
+let assert= require(pathToDir + 'assert') 
 
-beforeEach(() => {
-	this.five= 5
-})
+// create a setup function that you will call before tests that need to be setup
+let setup= () => {
+	this.five= 5 // For variables that need to be setup add them to "this". This prevents duplication from having to create variables above this function and then setting them inside
+}
 
-// each test case begins with a call to spec(). For now this just calls beforeEach so that each test will run the same. It is up to you, to write beforeEach() in such a way that it will
-// ensure all your tests run the same. Unlike other testing frameworks, you don't pass a description of what you are testing, for now just use comments for that:
+// manually call setup() before tests that need to be setup. It is up to you, to write setup() in such a way that it will ensure all your tests run the same.
+// Unlike other testing frameworks, you don't pass a description of what you are testing. For now just use comments for that:
 
-// beforeEach should be called at the start of each test
-spec()
+// test setup
+setup()
 assert.equal(5, this.five)
 this.five= 10
 
 // even though the previous test set this.five to 10, it should be back to 5 here
-spec()
+setup()
 assert.equal(5, this.five)

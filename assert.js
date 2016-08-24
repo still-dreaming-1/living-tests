@@ -10,4 +10,4 @@ let assert= (state={}) => {
 	return state
 }
 
-module.exports= assert
+module.exports= assert()

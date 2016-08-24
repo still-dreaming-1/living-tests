@@ -2,7 +2,7 @@
   "name": "living-tests",
   "version": "0.7.0",
   "description": "Bring your JavaScript tests alive",
-  "main": "index.js",
+  "main": "assert.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
