@@ -1,14 +1,7 @@
 // This is an example of how to write a test for living-tests. I am using living-tests to test itself, or in this case, to test the concept / instructions for writing these tests
-// You won't need this code in your own tests:
-let pathToDir= ''
-// the REPL doesn't like if else without braces
-if(typeof __dirname === 'undefined') {
-	pathToDir= './' // code directly entered into REPL
-} else {
-	pathToDir= '../'
-}
+
 // you will need this require in your own tests, but yours can be simpler. You can just use "let assert= require('living-tests')".
-let assert= require(pathToDir + 'assert') 
+let assert= require('../assert') 
 
 // create a setup function that you will call before tests that need to be setup
 let setup= () => {
