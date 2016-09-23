@@ -3,6 +3,9 @@
   "version": "0.8.0",
   "description": "Bring your JavaScript tests alive",
   "main": "assert.js",
+  "bin": {
+    "living-tests": "./run.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/still-dreaming-1/living-tests/issues"
   },
-  "homepage": "https://github.com/still-dreaming-1/living-tests#readme"
+  "homepage": "https://github.com/still-dreaming-1/living-tests#readme",
+  "dependencies": {
+    "elhin": "git+https://git@github.com/still-dreaming-1/elhin.git"
+  }
 }
