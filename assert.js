@@ -6,7 +6,7 @@ let assert= (state={}) => {
 	const passString= '✔' // returning this after an assertion does not fail is needed because the REPL will output whatever the assertion returns.
 	state.equal= (expected, actual) => {
 		originalAssert.equal(expected, actual)
-		return passString 
+		return passString
 	}
 	state.deepEqual= (expected, actual) => {
 		originalAssert.deepEqual(expected, actual)
