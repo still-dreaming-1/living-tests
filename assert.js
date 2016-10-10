@@ -12,7 +12,7 @@ let assert = (object = {}) => {
 	}
 
 	// A strict, deep equality assertion. Testing tools should use strict equality comparison as the default, not the other way around.
-	object.deepEqual = (expected, actual) => {
+	object.deep_equal = (expected, actual) => {
 		original_assert.deepStrictEqual(expected, actual)
 		return pass_string // returning a check mark to indicate the assertion passed. This is needed because the REPL will output whatever this function returns.
 	}
