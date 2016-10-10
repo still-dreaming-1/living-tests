@@ -1,3 +1,4 @@
+"use strict"
 // This is an example of how to write a test for living-tests. I am using living-tests to test itself, or in this case, to test the concept / instructions for writing these tests
 
 // you will need this require in your own tests, but yours can be simpler. You can just use "const assert = require('living-tests')".

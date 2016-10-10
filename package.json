@@ -27,6 +27,6 @@
   "homepage": "https://github.com/still-dreaming-1/living-tests#readme",
   "dependencies": {
     "chai": "^3.5.0",
-    "elhin": "git+https://git@github.com/still-dreaming-1/elhin.git"
+    "fs-extra": "^0.30.0"
   }
 }
