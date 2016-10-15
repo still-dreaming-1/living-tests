@@ -1,7 +1,7 @@
 "use strict"
 const assert = require('../../assert')
 const File = require('../../elhin/File')
-const Elhin = require('../../elhin/Elhin')
+const Living_tests = require('../../Living_tests')
 
 // testing File and Dir
 // when working with an empty text file
@@ -9,7 +9,7 @@ const Elhin = require('../../elhin/Elhin')
 let static_data_dir = null
 let file = null
 let setup = () => {
-	static_data_dir = Elhin().dir.getContainedDir('static test data')
+	static_data_dir = Living_tests().dir.getContainedDir('static test data')
 	file = static_data_dir.get_contained_file('empty file.txt')
 }
 
