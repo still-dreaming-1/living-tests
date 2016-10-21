@@ -58,9 +58,9 @@ assert.equal(Dir('/home').exists(), true)
 // Dir.exists() should not exist when it is a strangely named directory
 assert.equal(Dir('/idonotexistanywhereatall').exists(), false)
 
-// Dir.getContainedDir() should have the correct path
+// Dir.get_contained_dir() should have the correct path
 dir = Dir('/some_dir')
-let contained_dir = dir.getContainedDir('inside')
+let contained_dir = dir.get_contained_dir('inside')
 assert.equal(contained_dir.path, '/some_dir/inside/')
 
 // Dir.get_contained_file() should have the correct path
@@ -70,66 +70,66 @@ assert.equal(contained_file.path, '/some_dir/myfile.txt')
 
 // Dir.subdir_of() is not a subdirectory of its parent when the parent does not exist
 let mom = Dir('mommy')
-let baby = mom.getContainedDir('baby')
+let baby = mom.get_contained_dir('baby')
 assert.equal(baby.is_subdir_of(mom), false)
 
 // Dir.has_subdir() it does not have the subdirectory when it does not exist and therefore has no sub directories
 mom = Dir('mommy')
-baby = mom.getContainedDir('baby')
+baby = mom.get_contained_dir('baby')
 assert.equal(mom.has_subdir(baby), false)
 
 // Dir.is_subdir_of() it is false when parent has no dirs
-let parent = Living_tests().dir.getContainedDir('static test data')
+let parent = Living_tests().dir.get_contained_dir('static test data')
 assert.equal(parent.exists(), true)
-let child = parent.getContainedDir('I do not exist')
+let child = parent.get_contained_dir('I do not exist')
 assert.equal(child.exists(), false)
 assert.equal(child.is_subdir_of(parent), false)
 
 // Dir.has_subdir() it is false when parent has no dirs
-parent = Living_tests().dir.getContainedDir('static test data')
+parent = Living_tests().dir.get_contained_dir('static test data')
 assert.equal(parent.exists(), true)
-child = parent.getContainedDir('I do not exist')
+child = parent.get_contained_dir('I do not exist')
 assert.equal(child.exists(), false)
 assert.equal(parent.has_subdir(child), false)
 
 // Dir.is_subdir_of() child is not subdir of parent when parent only has other child dirs
-parent = Living_tests().dir.getContainedDir('static test data')
+parent = Living_tests().dir.get_contained_dir('static test data')
 assert.equal(parent.exists(), true)
-let non_existent_child = parent.getContainedDir('I do not exist')
+let non_existent_child = parent.get_contained_dir('I do not exist')
 assert.equal(non_existent_child.exists(), false)
-let real_child = parent.getContainedDir('empty dir')
+let real_child = parent.get_contained_dir('empty dir')
 assert.equal(real_child.exists(), true)
 assert.equal(non_existent_child.is_subdir_of(parent), false)
 
 // Dir.has_subdir() parent not has subdir when only has other children
-parent = Living_tests().dir.getContainedDir('static test data')
+parent = Living_tests().dir.get_contained_dir('static test data')
 assert.equal(parent.exists(), true)
-non_existent_child = parent.getContainedDir('I do not exist')
+non_existent_child = parent.get_contained_dir('I do not exist')
 assert.equal(non_existent_child.exists(), false)
 assert.equal(parent.has_subdir(non_existent_child), false)
 
 // Dir.is_subdir_of() is_subdir_of is true when happy path
-parent = Living_tests().dir.getContainedDir('static test data')
+parent = Living_tests().dir.get_contained_dir('static test data')
 assert.equal(parent.exists(), true)
-child = parent.getContainedDir('empty dir')
+child = parent.get_contained_dir('empty dir')
 assert.equal(child.exists(), true)
 assert.equal(child.is_subdir_of(parent), true)
 
 // Dir.has_subdir() is true when happy path
-parent = Living_tests().dir.getContainedDir('static test data')
+parent = Living_tests().dir.get_contained_dir('static test data')
 assert.equal(parent.exists(), true)
-child = parent.getContainedDir('empty dir')
+child = parent.get_contained_dir('empty dir')
 assert.equal(child.exists(), true)
 assert.equal(parent.has_subdir(child), true)
 
 // Dir.get_relative_dir() returns the parent dir when provided a relative path with ../ to go up a directory
 let living_tests = Living_tests()
-let static_data_dir = living_tests.dir.getContainedDir('static test data')
+let static_data_dir = living_tests.dir.get_contained_dir('static test data')
 let elhin_dir = static_data_dir.get_relative_dir('../')
 assert.equal(elhin_dir.path, living_tests.dir.path)
 
 // Dir.get_relative_dir() it can return a dir under the same parent dir using ../ in the path
-let test_dir = Living_tests().dir.getContainedDir('test')
+let test_dir = Living_tests().dir.get_contained_dir('test')
 static_data_dir = test_dir.get_relative_dir('../static test data')
 assert.equal(static_data_dir.path.endsWith('static test data/'), true)
 assert.equal(static_data_dir.exists(), true)

@@ -34,7 +34,7 @@ const Dir = (path, object = {}) => {
 		return Dir(object.path.substring(0, lastSlashIdx))
 	}
 
-	object.getContainedDir = name => Dir(object.path + name)
+	object.get_contained_dir = name => Dir(object.path + name)
 
 	object.get_relative_dir = (relativePath) =>  {
 		if(relativePath.startsWith('../')) {
@@ -44,7 +44,7 @@ const Dir = (path, object = {}) => {
 			} else
 				return object.parent()
 		}
-		return object.getContainedDir(relativePath)
+		return object.get_contained_dir(relativePath)
 	}
 
 	object.get_contained_file = (name) => File(object.path + name)

@@ -10,7 +10,7 @@ const Living_tests = require('../../Living_tests')
 let static_data_dir = null
 let file = null
 const setup = () => {
-	static_data_dir = Living_tests().dir.getContainedDir('static test data')
+	static_data_dir = Living_tests().dir.get_contained_dir('static test data')
 	file = static_data_dir.get_contained_file('non_empty_php_file.php')
 }
 

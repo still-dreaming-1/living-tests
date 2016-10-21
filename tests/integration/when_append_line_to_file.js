@@ -9,7 +9,7 @@ const Living_tests = require('../../Living_tests')
 let test_data_dir = null
 let file = null
 const Test_data_dir = () => {
-	return Living_tests().dir.getContainedDir('test data')
+	return Living_tests().dir.get_contained_dir('test data')
 }
 
 const setup = () => {
