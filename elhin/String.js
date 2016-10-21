@@ -8,13 +8,7 @@ String.prototype.contains = function(needle, start_index = 0) {
 
 assert(!String.prototype.hasOwnProperty('skip'), 'String.skip() already exists. See, they told you monkey patching was bad...')
 String.prototype.skip = function(count) {
-	return this.substring(count)
-}
-
-// remove the first character
-assert(!String.prototype.hasOwnProperty('removeStart'), 'String.removeStart() already exists. See, they told you monkey patching was bad...')
-String.prototype.removeStart = function() {
-	return this.substr(1)
+	return this.substr(count)
 }
 
 // remove the last character
@@ -35,7 +29,7 @@ String.prototype.escape = function(char) {
 		if(remaining.startsWith(char))
 			ret = ret + '\\'
 		ret = ret + remaining.substring(0, 1)
-		remaining = remaining.removeStart()
+		remaining = remaining.skip(1)
 	} while(remaining.length > 0)
 	return ret
 }

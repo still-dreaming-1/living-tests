@@ -40,20 +40,7 @@ assert.equal(''.skip(0), '')
 // skip() should return an empty string when skipping 1 char of an empty string
 assert.equal(''.skip(1), '')
 
-// removeStart() should remove first character when there are 3 characters
-assert.equal('efg'.removeStart(), 'fg')
-
-// removeStart() should remove first character when there are 3 characters
-assert.equal('efg'.removeStart(), 'fg')
-
-// removeStart() should remove first character when there are 2 characters
-assert.equal('sl'.removeStart(), 'l')
-
-// #removeStart() should return empty string when there is 1 character
-assert.equal('c'.removeStart(), '')
-
-// removeStart() should return empty string when starting with empty string
-assert.equal(''.removeStart(), '')
+assert.equal('abc45'.skip(1), 'bc45')
 
 // removeEnd() should remove last char of 3 char string
 assert.equal('xyz'.removeEnd(), 'xy')
