@@ -105,14 +105,14 @@ assert.equal('/some dir/another dir/filename.txt'.beforeLast('4'), '/some dir/an
 // beforeLast() should return an empty string when the needle does not exist and it is operating on an empty string
 assert.equal(''.beforeLast('a'), '')
 
-// GetVimNoMagic() should return backslash V when passed an empty string
-assert.equal(''.GetVimNoMagic(), '\\V')
+// getVimNoMagic() should return backslash V when passed an empty string
+assert.equal(''.getVimNoMagic(), '\\V')
 
-// GetVimNoMagic() should should add backslash V to the beginning of the string
-assert.equal('[1]%*()abc'.GetVimNoMagic(), '\\V[1]%*()abc')
+// getVimNoMagic() should should add backslash V to the beginning of the string
+assert.equal('[1]%*()abc'.getVimNoMagic(), '\\V[1]%*()abc')
 
-// GetVimNoMagic() should escape backslash when that is the only character
-assert.equal('\\'.GetVimNoMagic(), '\\V\\\\')
+// getVimNoMagic() should escape backslash when that is the only character
+assert.equal('\\'.getVimNoMagic(), '\\V\\\\')
 
-// GetVimNoMagic() should return string with backslashes escaped when the backsash is in the middle of the string
-assert.equal('abc\\123'.GetVimNoMagic(), '\\Vabc\\\\123')
+// getVimNoMagic() should return string with backslashes escaped when the backsash is in the middle of the string
+assert.equal('abc\\123'.getVimNoMagic(), '\\Vabc\\\\123')

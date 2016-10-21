@@ -52,8 +52,8 @@ String.prototype.beforeLast = function(needle) {
 	return this.substring(0, i)
 }
 // this helps when you are using strings that are interpreted as Vim patterns, but you don't want them to be
-assert(!String.prototype.hasOwnProperty('GetVimNoMagic'), 'String.GetVimNoMagic() already exists. See, they told you monkey patching was bad...')
-String.prototype.GetVimNoMagic = function() {
+assert(!String.prototype.hasOwnProperty('getVimNoMagic'), 'String.getVimNoMagic() already exists. See, they told you monkey patching was bad...')
+String.prototype.getVimNoMagic = function() {
 	let escaped_string = this.escape('\\')
 	// see :h \V in Vim for info about this very nomagic trick
 	return '\\V' + escaped_string
