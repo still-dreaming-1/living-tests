@@ -144,3 +144,8 @@ let empty_file = static_data_dir.get_contained_file('empty file.txt')
 assert.equal(living_tests.dir.contains_file_path_recursive(empty_file.path), true)
 let non_existent_file = static_data_dir.get_contained_file('I do not exist.txt')
 assert.equal(living_tests.dir.contains_file_path_recursive(non_existent_file.path), false)
+
+// get_all_files() of empty dir
+let empty_dir = static_data_dir.get_contained_dir('empty dir');
+assert.equal(empty_dir.exists(), true)
+assert.deep_equal(empty_dir.get_all_files(), [])
