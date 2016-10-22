@@ -125,11 +125,16 @@ assert.equal(parent.has_subdir(child), true)
 // Dir.get_relative_dir() returns the parent dir when provided a relative path with ../ to go up a directory
 let living_tests = Living_tests()
 let static_data_dir = living_tests.dir.get_contained_dir('static test data')
-let elhin_dir = static_data_dir.get_relative_dir('../')
-assert.equal(elhin_dir.path, living_tests.dir.path)
+let living_tests_dir = static_data_dir.get_relative_dir('../')
+assert.equal(living_tests_dir.path, living_tests.dir.path)
 
 // Dir.get_relative_dir() it can return a dir under the same parent dir using ../ in the path
 let test_dir = Living_tests().dir.get_contained_dir('test')
 static_data_dir = test_dir.get_relative_dir('../static test data')
 assert.equal(static_data_dir.path.endsWith('static test data/'), true)
 assert.equal(static_data_dir.exists(), true)
+
+// Dir.get_relative_dir() can go up more than one dir using ../
+let integraion_dir = living_tests.dir.get_contained_dir('tests/integration')
+assert.equal(integraion_dir.exists(), true)
+assert.equal(integraion_dir.get_relative_dir('../../').path, living_tests.dir.path)
