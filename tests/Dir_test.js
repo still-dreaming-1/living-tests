@@ -138,3 +138,9 @@ assert.equal(static_data_dir.exists(), true)
 let integraion_dir = living_tests.dir.get_contained_dir('tests/integration')
 assert.equal(integraion_dir.exists(), true)
 assert.equal(integraion_dir.get_relative_dir('../../').path, living_tests.dir.path)
+
+// contains_file_path_recursive() tests
+let empty_file = static_data_dir.get_contained_file('empty file.txt')
+assert.equal(living_tests.dir.contains_file_path_recursive(empty_file.path), true)
+let non_existent_file = static_data_dir.get_contained_file('I do not exist.txt')
+assert.equal(living_tests.dir.contains_file_path_recursive(non_existent_file.path), false)
