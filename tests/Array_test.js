@@ -16,9 +16,9 @@ assert.equal(array_with_true.containsTest(() => true), true)
 assert.equal(array_with_false.containsTest(() => false), false)
 let fred = { name: 'fred' }
 let array_with_fred = [fred]
-assert.equal(array_with_fred.containsTest((x) => x.name === 'fred'), true)
-assert.equal(array_with_fred.containsTest((x) => x.name === 'sally'), false)
+assert.equal(array_with_fred.containsTest(x => x.name === 'fred'), true)
+assert.equal(array_with_fred.containsTest(x => x.name === 'sally'), false)
 let sally = { name: 'sally' }
 let array_with_fred_and_sally = [fred, sally]
-assert.equal(array_with_fred_and_sally.containsTest((x) => x.name === 'fred'), true)
-assert.equal(array_with_fred_and_sally.containsTest((x) => x.name === 'sally'), true)
+assert.equal(array_with_fred_and_sally.containsTest(x => x.name === 'fred'), true)
+assert.equal(array_with_fred_and_sally.containsTest(x => x.name === 'sally'), true)
