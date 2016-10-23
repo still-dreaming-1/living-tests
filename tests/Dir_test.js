@@ -1,5 +1,6 @@
 "use strict"
 require('../elhin/String')
+require('../elhin/Array')
 const Dir = require('../elhin/Dir')
 const Living_tests = require('../Living_tests')
 const assert = require('../assert')
@@ -149,3 +150,46 @@ assert.equal(living_tests.dir.contains_file_path_recursive(non_existent_file.pat
 let empty_dir = static_data_dir.get_contained_dir('empty dir');
 assert.equal(empty_dir.exists(), true)
 assert.deep_equal(empty_dir.get_all_files(), [])
+
+// get_all_files() of non empty dir
+let static_data_file_array = static_data_dir.get_all_files()
+assert.equal(static_data_file_array.length, 2)
+assert.equal(static_data_file_array.containsTest((x) => x.name === 'empty file.txt'), true)
+assert.equal(static_data_file_array.containsTest((x) => x.name === 'non_empty_php_file.php'), true)
+
+// get_all_files() does not work recursively
+let living_test_file_array = living_tests.dir.get_all_files()
+assert.equal(living_test_file_array.length > 0, true)
+assert.equal(living_test_file_array.containsTest((x) => x.name === 'empty file.txt'), false)
+assert.equal(living_test_file_array.containsTest((x) => x.name === 'non_empty_php_file.php'), false)
+
+// get_all_dirs()
+let living_test_dir_array = living_tests.dir.get_all_dirs()
+assert.equal(living_test_dir_array.length, 6)
+assert.equal(living_test_dir_array.containsTest((x) => x.name === '.git'), true)
+assert.equal(living_test_dir_array.containsTest((x) => x.name === 'elhin'), true)
+assert.equal(living_test_dir_array.containsTest((x) => x.name === 'node_modules'), true)
+assert.equal(living_test_dir_array.containsTest((x) => x.name === 'static test data'), true)
+assert.equal(living_test_dir_array.containsTest((x) => x.name === 'test'), true)
+assert.equal(living_test_dir_array.containsTest((x) => x.name === 'tests'), true)
+
+// get_all_files_recursive() gets same files when no recursive files
+let non_empty_dir = static_data_dir.get_contained_dir('non empty dir')
+let non_empty_dir_file_array = non_empty_dir.get_all_files_recursive()
+assert.equal(non_empty_dir_file_array.length, 1)
+assert.equal(non_empty_dir_file_array.containsTest((x) => x.name === 'see not empty.txt'), true)
+
+// get_all_files_recursive() works recursively with 1 level of recursion
+let static_data_file_array_recursive = static_data_dir.get_all_files_recursive()
+assert.equal(static_data_file_array_recursive.length, 3)
+assert.equal(static_data_file_array_recursive.containsTest(x => x.name === 'empty file.txt'), true)
+assert.equal(static_data_file_array_recursive.containsTest(x => x.name === 'non_empty_php_file.php'), true)
+assert.equal(static_data_file_array_recursive.containsTest(x => x.name === 'see not empty.txt'), true)
+
+// get_all_files_recursive() works recursively with 2 levels of recursion
+let living_test_file_array_recursive = living_tests.dir.get_all_files_recursive()
+assert.equal(living_test_file_array_recursive.length > 3, true)
+assert.equal(living_test_file_array_recursive.containsTest(x => x.name === 'package.json'), true)
+assert.equal(living_test_file_array_recursive.containsTest(x => x.name === 'empty file.txt'), true)
+assert.equal(living_test_file_array_recursive.containsTest(x => x.name === 'non_empty_php_file.php'), true)
+assert.equal(living_test_file_array_recursive.containsTest(x => x.name === 'see not empty.txt'), true)

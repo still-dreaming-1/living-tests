@@ -62,14 +62,9 @@ const Dir = (path, object = {}) => {
 	}
 
 	object.get_all_files_recursive = () => {
-		let all_files = []
-		for(let file of object.get_all_files())
-			all_files.push(file)
-		all_files.push.apply(object.get_all_files())
-		for(let dir of object.get_all_dirs()) {
-			for(let file of dir.get_all_files_recursive())
-				all_files.push(file)
-		}
+		let all_files = object.get_all_files()
+		for(let dir of object.get_all_dirs())
+			all_files = all_files.concat(dir.get_all_files_recursive())
 		return all_files
 	}
 
@@ -77,7 +72,7 @@ const Dir = (path, object = {}) => {
 		return fs.readdirSync(object.path)
 			.map(name => object.path + name)
 			.filter(path => fs.statSync(path).isDirectory())
-			.filter(file_path => Dir(path))
+			.map(dir_path => Dir(dir_path))
 	}
 
 	object.get_all_dirs_recursive = () => {
