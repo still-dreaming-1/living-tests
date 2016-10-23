@@ -58,7 +58,7 @@ const File = (path, object = {}) => {
 	// searches for all occurances of needle in the file contents. needle is not treated as a regular expression
 	// returns an array of Positions
 	object.find_all = needle => {
-		let pos_list = []
+		let pos_array = []
 		let y = 0
 		for(let line of object.read_lines()) {
 			let start = 0
@@ -67,13 +67,13 @@ const File = (path, object = {}) => {
 			while(x < line.length) {
 				x = line.indexOf(needle, start)
 				if(x >= 0)
-					pos_list.push(Position(x + 1, y))
+					pos_array.push(Position(x + 1, y))
 				else
 					break
 				start = x + 1
 			}
 		}
-		return pos_list
+		return pos_array
 	}
 
 	return object

@@ -1,12 +1,45 @@
 "use strict"
 const assert = require('../assert')
-
-// testing String monkey patch / extension methods
 const File = require('../elhin/File')
+const Position = require('../elhin/Position')
+const Living_tests = require('../Living_tests')
 
-let file = File('/some/file/path.txt')
-assert.equal(file.path, '/some/file/path.txt')
+let static_data_dir = Living_tests().dir.get_contained_dir('static test data')
+assert.equal(static_data_dir.exists(), true)
 
-assert.equal(file.extension, 'txt')
-assert.equal(file.name_without_extension, 'path')
-assert.equal(file.exists(), false)
+let non_existent_file = File('/some/file/path.txt')
+assert.equal(non_existent_file.path, '/some/file/path.txt')
+assert.equal(non_existent_file.extension, 'txt')
+assert.equal(non_existent_file.name_without_extension, 'path')
+assert.equal(non_existent_file.exists(), false)
+
+let empty_file = static_data_dir.get_contained_file('empty file.txt')
+assert.equal(empty_file.exists(), true)
+assert.equal(empty_file.size(), 0)
+assert.equal(empty_file.read_lines().length, 0)
+assert.equal(empty_file.find_all('class').length, 0)
+
+let non_empty_file = static_data_dir.get_contained_file('non_empty_php_file.php')
+assert.equal(non_empty_file.exists(), true)
+assert.equal(non_empty_file.size(), 32)
+
+let lines = non_empty_file.read_lines()
+assert.equal(lines.length, 4)
+assert.equal(lines[0], '<?')
+assert.equal(lines[1], 'class non_empty_php_file {')
+assert.equal(lines[2], '}')
+assert.equal(lines[3], '')
+assert.deep_equal(non_empty_file.find_all('<'), [Position(1, 1)])
+assert.deep_equal(non_empty_file.find_all('?'), [Position(2, 1)])
+assert.deep_equal(non_empty_file.find_all('{'), [Position(26, 2)])
+assert.deep_equal(non_empty_file.find_all('}'), [Position(1, 3)])
+
+let s_position_array = non_empty_file.find_all('s')
+assert.equal(s_position_array.length, 2)
+assert.equal(s_position_array[0].y, 2)
+assert.equal(s_position_array[0].x, 4)
+assert.equal(s_position_array[1].y, 2)
+assert.equal(s_position_array[1].x, 5)
+
+assert.deep_equal(non_empty_file.find_all('ss'), [Position(4, 2)])
+assert.deep_equal(non_empty_file.find_all('class'), [Position(1, 2)])
