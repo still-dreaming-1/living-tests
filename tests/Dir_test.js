@@ -193,3 +193,12 @@ assert.equal(living_test_file_array_recursive.containsTest(x => x.name === 'pack
 assert.equal(living_test_file_array_recursive.containsTest(x => x.name === 'empty file.txt'), true)
 assert.equal(living_test_file_array_recursive.containsTest(x => x.name === 'non_empty_php_file.php'), true)
 assert.equal(living_test_file_array_recursive.containsTest(x => x.name === 'see not empty.txt'), true)
+
+// get_files_with_extension_recursive() works recursively
+let php_file_array = living_tests.dir.get_files_with_extension_recursive('php')
+assert.equal(php_file_array.length, 1)
+assert.equal(php_file_array.containsTest(x => x.name === 'non_empty_php_file.php'), true)
+let txt_file_array = living_tests.dir.get_files_with_extension_recursive('txt')
+assert.equal(txt_file_array.length >= 2, true)
+assert.equal(txt_file_array.containsTest(x => x.name === 'empty file.txt'), true)
+assert.equal(txt_file_array.containsTest(x => x.name === 'see not empty.txt'), true)
