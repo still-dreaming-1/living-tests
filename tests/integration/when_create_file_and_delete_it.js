@@ -1,6 +1,6 @@
 "use strict"
 
-// when create() a file and append_line() to it
+// when create() a file and delete() it
 
 const assert = require('../../assert')
 const File = require('../../elhin/File')
