@@ -89,4 +89,5 @@ setup()
 let lines = file.read_lines()
 assert.equal(lines.length, 2)
 assert.equal(lines[0], 'I am a line!')
+assert.equal(lines[1], '') // this blank line exists because append_line() always adds a new line character
 tear_down()
