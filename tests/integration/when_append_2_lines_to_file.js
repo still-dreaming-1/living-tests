@@ -1,6 +1,6 @@
 "use strict"
 
-// when append_line() to file
+// when append_line() twice to file
 
 const assert = require('../../assert')
 const File = require('../../elhin/File')
@@ -22,7 +22,8 @@ const setup = () => {
 	assert.equal(file.exists(), false)
 	file.create()
 	assert.equal(file.exists(), true)
-	file.append_line('I am a line!')
+	file.append_line('the first line')
+	file.append_line('that other line')
 }
 
 const tear_down_without_assertions_or_exceptions = () => {
@@ -87,6 +88,7 @@ tear_down()
 // file has the appended line
 setup()
 let lines = file.read_lines()
-assert.equal(lines.length, 2)
-assert.equal(lines[0], 'I am a line!')
+assert.equal(lines.length, 3)
+assert.equal(lines[0], 'the first line')
+assert.equal(lines[1], 'that other line')
 tear_down()
