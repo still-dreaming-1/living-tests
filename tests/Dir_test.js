@@ -165,12 +165,11 @@ assert.equal(living_test_file_array.containsTest(x => x.name === 'non_empty_php_
 
 // get_all_dirs()
 let living_test_dir_array = living_tests.dir.get_all_dirs()
-assert.equal(living_test_dir_array.length, 6)
+assert.equal(living_test_dir_array.length, 5)
 assert.equal(living_test_dir_array.containsTest(x => x.name === '.git'), true)
 assert.equal(living_test_dir_array.containsTest(x => x.name === 'elhin'), true)
 assert.equal(living_test_dir_array.containsTest(x => x.name === 'node_modules'), true)
 assert.equal(living_test_dir_array.containsTest(x => x.name === 'static test data'), true)
-assert.equal(living_test_dir_array.containsTest(x => x.name === 'test'), true)
 assert.equal(living_test_dir_array.containsTest(x => x.name === 'tests'), true)
 
 // get_all_files_recursive() gets same files when no recursive files
