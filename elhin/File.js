@@ -39,7 +39,7 @@ const File = (path, object = {}) => {
 		return fs.statSync(object.path).size
 	}
 
-	object.append_line = (str, encoding = 'utf-8', line_ending='\n') => {
+	object.append_line = (str, encoding = 'utf-8', line_ending = '\n') => {
 		return fs.writeFileSync(object.path, str + line_ending,
 			{
 				flag : 'a',
