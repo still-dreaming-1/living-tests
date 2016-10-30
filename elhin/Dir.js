@@ -79,7 +79,7 @@ const Dir = (path, object = {}) => {
 		let all_dirs_recursive = []
 		let all_dirs = object.get_all_dirs()
 		all_dirs_recursive.push.apply(all_dirs)
-		for(let dir in all_dirs)
+		for(let dir of all_dirs)
 			all_dirs_recursive.push.apply(dir.get_all_dirs_recursive())
 		return all_dirs_recursive
 	}
