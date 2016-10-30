@@ -69,7 +69,7 @@ let all_dirs_recursive = test_data_dir.get_all_dirs_recursive()
 assert.equal(all_dirs_non_recursive.length, 0)
 tear_down()
 
-// only the 1 txt file exists when using get_all_files_recursive()
+// 2 txt files exists when using get_all_files_recursive()
 setup()
 let all_files_recursive = test_data_dir.get_all_files_recursive()
 assert.equal(all_files_recursive.length, 2)
@@ -93,13 +93,14 @@ let js_files = test_data_dir.get_files_with_extension_recursive('js')
 assert.equal(js_files.length, 0)
 tear_down()
 
-// file empty
+// both files are empty
 setup()
 assert.equal(created_file.size(), 0)
+assert.equal(copied_file.size(), 0)
 tear_down()
 
-// file has no lines
+// both files have no lines
 setup()
-let lines = created_file.read_lines()
-assert.equal(lines.length, 0)
+assert.equal(created_file.read_lines().length, 0)
+assert.equal(copied_file.read_lines().length, 0)
 tear_down()
