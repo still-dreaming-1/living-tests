@@ -15,7 +15,7 @@ const assert = (object = {}) => {
 	// A strict, deep equality assertion. Testing tools should use strict equality comparison as the default, not the other way around.
 	object.deep_equal = (actual, expected) => {
 		original_assert.deepStrictEqual(actual, expected)
-		return pass_string // returning a check mark to indicate the assertion passed. This is needed because the REPL will output whatever this function returns.
+		return pass_string
 	}
 
 	object.greater_than = (actual, value_to_be_greater_than) => {
