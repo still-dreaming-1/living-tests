@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 
 const Shell = (object = {}) => {
 	object.run = (command, args = null) => require('child_process').spawnSync(command, args)

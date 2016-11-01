@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 const assert = require('../assert')
 
 // testing String monkey patch / extension methods

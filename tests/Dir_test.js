@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 require('../elhin/String')
 require('../elhin/Array')
 const Dir = require('../elhin/Dir')

@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 
 const Living_tests = (object = {}) => {
 	require('./elhin/String')

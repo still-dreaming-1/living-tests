@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 const assert = require('assert')
 
 assert(!Array.prototype.hasOwnProperty('contains_test'), 'Array.contains_test() already exists. See, they told you monkey patching was bad...')

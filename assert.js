@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 
 const original_assert = require('assert')
 const chai_assert = require('chai').assert
