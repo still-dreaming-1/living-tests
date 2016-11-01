@@ -171,9 +171,23 @@ assert.equal(living_test_dir_array.containsTest(x => x.name === 'elhin'), true)
 assert.equal(living_test_dir_array.containsTest(x => x.name === 'node_modules'), true)
 assert.equal(living_test_dir_array.containsTest(x => x.name === 'static test data'), true)
 assert.equal(living_test_dir_array.containsTest(x => x.name === 'tests'), true)
+
 // get_all_dirs_recursive()
 let living_test_dir_array_recursive = living_tests.dir.get_all_dirs_recursive()
 assert.greater_than(living_test_dir_array_recursive.length, living_test_dir_array.length)
+assert.equal(living_test_dir_array_recursive.containsTest(x => x.name === '.git'), true)
+assert.equal(living_test_dir_array_recursive.containsTest(x => x.name === 'elhin'), true)
+assert.equal(living_test_dir_array_recursive.containsTest(x => x.name === 'node_modules'), true)
+assert.equal(living_test_dir_array_recursive.containsTest(x => x.name === 'static test data'), true)
+assert.equal(living_test_dir_array_recursive.containsTest(x => x.name === 'tests'), true)
+assert.equal(
+	living_test_dir_array_recursive.containsTest(
+		x => x.name === 'empty dir' && x.parent().name === 'static test data' && x.parent().parent().path === living_tests_dir.path),
+	true)
+assert.equal(
+	living_test_dir_array_recursive.containsTest(
+		x => x.name === 'non empty dir' && x.parent().name === 'static test data' && x.parent().parent().path === living_tests_dir.path),
+	true)
 
 // get_all_files_recursive() gets same files when no recursive files
 let non_empty_dir = static_data_dir.get_contained_dir('non empty dir')
