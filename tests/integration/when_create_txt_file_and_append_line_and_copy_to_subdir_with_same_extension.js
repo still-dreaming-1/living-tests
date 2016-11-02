@@ -8,7 +8,6 @@ require('../../elhin/Array')
 const Dir = require('../../elhin/Dir')
 const Living_tests = require('../../Living_tests')
 
-
 let test_data_dir = null
 let test_data_subdir = null
 let created_file = null
