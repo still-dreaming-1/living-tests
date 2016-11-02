@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 
 // when create() a txt file and copy_to() the same directory with the php file extension
 

@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 
 // when append_line() twice to file
 

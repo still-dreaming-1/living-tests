@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 
 // when create() a txt file and copy_to() an existing subdir with the same file extension
 

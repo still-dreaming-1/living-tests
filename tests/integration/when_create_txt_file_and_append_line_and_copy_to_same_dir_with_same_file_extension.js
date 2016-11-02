@@ -1,6 +1,6 @@
 'use strict'
 
-// when create() a txt file and copy_to() the same directory with the same file extension
+// when create() a txt file and append_line() and copy_to() the same dir with the same file extension
 
 const assert = require('../../assert')
 const File = require('../../elhin/File')
@@ -26,6 +26,11 @@ const setup = () => {
 	assert.equal(created_file.exists(), false)
 	created_file.create()
 	assert.equal(created_file.exists(), true)
+	created_file.append_line('added this line')
+	let lines = created_file.read_lines()
+	assert.equal(lines.length, 2)
+	assert.equal(lines[0], 'added this line')
+	assert.equal(lines[1], '')
 	copied_file = test_data_dir.get_contained_file('copied file.txt')
 	assert.equal(copied_file.exists(), false)
 	created_file.copy_to(copied_file.path)
@@ -66,7 +71,7 @@ tear_down()
 // no directories exist when using get_all_dirs_recursive()
 setup()
 let all_dirs_recursive = test_data_dir.get_all_dirs_recursive()
-assert.equal(all_dirs_non_recursive.length, 0)
+assert.equal(all_dirs_recursive.length, 0)
 tear_down()
 
 // 2 txt files exists when using get_all_files_recursive()
@@ -93,14 +98,20 @@ let js_files = test_data_dir.get_files_with_extension_recursive('js')
 assert.equal(js_files.length, 0)
 tear_down()
 
-// both files are empty
+// neither file is empty
 setup()
-assert.equal(created_file.size(), 0)
-assert.equal(copied_file.size(), 0)
+assert.greater_than(created_file.size(), 0)
+assert.greater_than(copied_file.size(), 0)
 tear_down()
 
-// both files have no lines
+// both files have the lines
 setup()
-assert.equal(created_file.read_lines().length, 0)
-assert.equal(copied_file.read_lines().length, 0)
+let created_file_lines = created_file.read_lines()
+let copied_file_lines = copied_file.read_lines()
+assert.equal(created_file_lines.length, 2)
+assert.equal(copied_file_lines.length, 2)
+assert.equal(created_file_lines[0], 'added this line')
+assert.equal(copied_file_lines[0], 'added this line')
+assert.equal(created_file_lines[1], '')
+assert.equal(copied_file_lines[1], '')
 tear_down()

@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 
 // when create() a file and delete() it
 

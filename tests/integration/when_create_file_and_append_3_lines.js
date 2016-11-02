@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 
 // when create() a file and append_line() 3 times to it
 
