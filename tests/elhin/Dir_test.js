@@ -1,9 +1,9 @@
 'use strict'
-require('../elhin/String')
-require('../elhin/Array')
-const Dir = require('../elhin/Dir')
-const Living_tests = require('../Living_tests')
-const assert = require('../assert')
+require('../../elhin/String')
+require('../../elhin/Array')
+const Dir = require('../../elhin/Dir')
+const Living_tests = require('../../Living_tests')
+const assert = require('../../assert')
 
 // tests the Dir class
 

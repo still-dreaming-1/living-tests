@@ -1,8 +1,8 @@
 'use strict'
-const assert = require('../assert')
-const File = require('../elhin/File')
-const Position = require('../elhin/Position')
-const Living_tests = require('../Living_tests')
+const assert = require('../../assert')
+const File = require('../../elhin/File')
+const Position = require('../../elhin/Position')
+const Living_tests = require('../../Living_tests')
 
 let static_data_dir = Living_tests().dir.get_contained_dir('static test data')
 assert.equal(static_data_dir.exists(), true)

@@ -1,8 +1,8 @@
 'use strict'
-const assert = require('../assert')
+const assert = require('../../assert')
 
 // testing String monkey patch / extension methods
-const Position = require('../elhin/Position')
+const Position = require('../../elhin/Position')
 
 let position = Position()
 assert.equal(position.x, 0)

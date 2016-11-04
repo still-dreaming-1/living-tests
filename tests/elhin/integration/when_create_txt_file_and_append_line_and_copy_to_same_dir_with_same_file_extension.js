@@ -1,15 +1,15 @@
 'use strict'
 
-// when create() a txt file and append_line() and copy_to() subdir with the same file extension
+// when create() a txt file and append_line() and copy_to() the same dir with the same file extension
 
-const assert = require('../../assert')
-const File = require('../../elhin/File')
-require('../../elhin/Array')
-const Dir = require('../../elhin/Dir')
-const Living_tests = require('../../Living_tests')
+const assert = require('../../../assert')
+const File = require('../../../elhin/File')
+require('../../../elhin/Array')
+const Dir = require('../../../elhin/Dir')
+const Living_tests = require('../../../Living_tests')
+
 
 let test_data_dir = null
-let test_data_subdir = null
 let created_file = null
 let copied_file = null
 const Test_data_dir = () => {
@@ -22,10 +22,6 @@ const setup = () => {
 	assert.equal(test_data_dir.exists(), false)
 	test_data_dir.create()
 	assert.equal(test_data_dir.exists(), true)
-	test_data_subdir = test_data_dir.get_contained_dir('subdir')
-	assert.equal(test_data_subdir.exists(), false)
-	test_data_subdir.create()
-	assert.equal(test_data_subdir.exists(), true)
 	created_file = test_data_dir.get_contained_file('file.txt')
 	assert.equal(created_file.exists(), false)
 	created_file.create()
@@ -35,7 +31,7 @@ const setup = () => {
 	assert.equal(lines.length, 2)
 	assert.equal(lines[0], 'added this line')
 	assert.equal(lines[1], '')
-	copied_file = test_data_subdir.get_contained_file('copied file.txt')
+	copied_file = test_data_dir.get_contained_file('copied file.txt')
 	assert.equal(copied_file.exists(), false)
 	created_file.copy_to(copied_file.path)
 }
@@ -58,25 +54,24 @@ setup()
 assert.equal(copied_file.exists(), true)
 tear_down()
 
-// only the original txt files exist when using get_all_files()
+// only the 2 txt files exist when using get_all_files()
 setup()
 let all_files_non_recursive = test_data_dir.get_all_files()
-assert.equal(all_files_non_recursive.length, 1)
+assert.equal(all_files_non_recursive.length, 2)
 assert.equal(all_files_non_recursive.containsTest((x) => x.path === created_file.path), true)
+assert.equal(all_files_non_recursive.containsTest((x) => x.path === copied_file.path), true)
 tear_down()
 
-// the subdir exists when using get_all_dirs()
+// no directories exist when using get_all_dirs()
 setup()
 let all_dirs_non_recursive = test_data_dir.get_all_dirs()
-assert.equal(all_dirs_non_recursive.length, 1)
-assert.equal(all_dirs_non_recursive.containsTest((x) => x.path === test_data_subdir.path && x.parent().path === test_data_dir.path), true)
+assert.equal(all_dirs_non_recursive.length, 0)
 tear_down()
 
-// the subdir exists when using get_all_dirs_recursive()
+// no directories exist when using get_all_dirs_recursive()
 setup()
 let all_dirs_recursive = test_data_dir.get_all_dirs_recursive()
-assert.equal(all_dirs_recursive.length, 1)
-assert.equal(all_dirs_recursive.containsTest((x) => x.path === test_data_subdir.path && x.parent().path === test_data_dir.path), true)
+assert.equal(all_dirs_recursive.length, 0)
 tear_down()
 
 // 2 txt files exists when using get_all_files_recursive()

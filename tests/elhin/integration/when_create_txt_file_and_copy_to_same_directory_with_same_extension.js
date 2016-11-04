@@ -2,11 +2,11 @@
 
 // when create() a txt file and copy_to() the same directory with the same file extension
 
-const assert = require('../../assert')
-const File = require('../../elhin/File')
-require('../../elhin/Array')
-const Dir = require('../../elhin/Dir')
-const Living_tests = require('../../Living_tests')
+const assert = require('../../../assert')
+const File = require('../../../elhin/File')
+require('../../../elhin/Array')
+const Dir = require('../../../elhin/Dir')
+const Living_tests = require('../../../Living_tests')
 
 
 let test_data_dir = null

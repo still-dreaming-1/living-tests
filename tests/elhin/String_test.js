@@ -1,8 +1,8 @@
 'use strict'
-const assert = require('../assert')
+const assert = require('../../assert')
 
 // testing String monkey patch / extension methods
-require('../elhin/String')
+require('../../elhin/String')
 
 // should contain the only character it contains
 assert.equal('1'.contains('1'), true)

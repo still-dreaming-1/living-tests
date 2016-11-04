@@ -1,10 +1,10 @@
 'use strict'
 
-// when create() a file and append_line() to it
+// when append_line() twice to file
 
-const assert = require('../../assert')
-const File = require('../../elhin/File')
-const Living_tests = require('../../Living_tests')
+const assert = require('../../../assert')
+const File = require('../../../elhin/File')
+const Living_tests = require('../../../Living_tests')
 
 let test_data_dir = null
 let file = null
@@ -22,7 +22,8 @@ const setup = () => {
 	assert.equal(file.exists(), false)
 	file.create()
 	assert.equal(file.exists(), true)
-	file.append_line('I am a line!')
+	file.append_line('the first line')
+	file.append_line('that other line')
 }
 
 const tear_down_without_assertions_or_exceptions = () => {
@@ -87,7 +88,8 @@ tear_down()
 // file has the appended line
 setup()
 let lines = file.read_lines()
-assert.equal(lines.length, 2)
-assert.equal(lines[0], 'I am a line!')
-assert.equal(lines[1], '') // this blank line exists because append_line() always adds a new line character
+assert.equal(lines.length, 3)
+assert.equal(lines[0], 'the first line')
+assert.equal(lines[1], 'that other line')
+assert.equal(lines[2], '')
 tear_down()
