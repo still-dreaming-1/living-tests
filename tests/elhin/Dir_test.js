@@ -123,6 +123,13 @@ child = parent.get_contained_dir('empty dir')
 assert.equal(child.exists(), true)
 assert.equal(parent.has_subdir(child), true)
 
+// Dir.has_subdir() is false when other dir does exist but not within that dir
+parent = Living_tests().dir.get_contained_dir('static test data')
+assert.equal(parent.exists(), true)
+child = Living_tests().dir
+assert.equal(child.exists(), true)
+assert.equal(parent.has_subdir(child), false)
+
 // Dir.get_relative_dir() returns the parent dir when provided a relative path with ../ to go up a directory
 let living_tests = Living_tests()
 let static_data_dir = living_tests.dir.get_contained_dir('static test data')
