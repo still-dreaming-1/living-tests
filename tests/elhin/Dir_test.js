@@ -69,7 +69,7 @@ dir = Dir('/some_dir')
 let contained_file = dir.get_contained_file('myfile.txt')
 assert.equal(contained_file.path, '/some_dir/myfile.txt')
 
-// Dir.subdir_of() is not a subdirectory of its parent when the parent does not exist
+// Dir.is_subdir_of() is not a subdirectory of its parent when the parent does not exist
 let mom = Dir('mommy')
 let baby = mom.get_contained_dir('baby')
 assert.equal(baby.is_subdir_of(mom), false)
