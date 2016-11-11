@@ -136,9 +136,9 @@ assert.equal(static_data_dir.path.endsWith('static test data/'), true)
 assert.equal(static_data_dir.exists(), true)
 
 // Dir.get_relative_dir() can go up more than one dir using ../
-let integraion_dir = living_tests.dir.get_contained_dir('tests/integration')
+let integraion_dir = living_tests.dir.get_contained_dir('tests/elhin/integration')
 assert.equal(integraion_dir.exists(), true)
-assert.equal(integraion_dir.get_relative_dir('../../').path, living_tests.dir.path)
+assert.equal(integraion_dir.get_relative_dir('../../../').path, living_tests.dir.path)
 
 // contains_file_path_recursive() tests
 let empty_file = static_data_dir.get_contained_file('empty file.txt')
