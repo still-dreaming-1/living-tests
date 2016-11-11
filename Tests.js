@@ -3,9 +3,9 @@ const Dir = require('./elhin/Dir')
 const Test_result = require('./Test_result')
 const shell = require('./elhin/Shell')()
 
-const Tests = (project_path, object = {}) => {
+const Tests = (project_dir, object = {}) => {
 	object.collect_files = () => {
-		const test_dir = Dir(project_path).get_contained_dir('tests')
+		const test_dir = project_dir.get_contained_dir('tests')
 		return test_dir.get_files_with_extension_recursive('js')
 	}
 	object.run = (test_file_array) => {
