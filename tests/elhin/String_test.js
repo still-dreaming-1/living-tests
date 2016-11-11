@@ -74,6 +74,9 @@ assert.equal('some \\ text'.escape(' '), 'some\\ \\\\ text')
 
 // escape() should escape backslash when escaping backslash
 assert.equal('some \\ text'.escape('\\'), 'some \\\\ text')
+//
+// escape() should escape string when the string to escape is longer than 1 char
+assert.equal('some text'.escape('text'), 'some \\text')
 
 // afterLast() should return the characters after the last instance of needle in the haystack when needle is in haystack multiple times
 assert.equal('/some dir/another dir/filename'.afterLast('/'), 'filename')
