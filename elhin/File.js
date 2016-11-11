@@ -2,7 +2,6 @@
 
 const File = (path, object = {}) => {
 	require('./String')
-	const Shell = require('./Shell')
 	const Position  = require('./Position')
 	const fs = require('fs-extra')
 
