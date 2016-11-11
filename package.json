@@ -1,6 +1,6 @@
 {
   "name": "living-tests",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "Bring your JavaScript tests alive",
   "main": "assert.js",
   "bin": {
