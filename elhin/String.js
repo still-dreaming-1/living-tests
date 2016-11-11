@@ -19,14 +19,12 @@ String.prototype.removeEnd = function() {
 
 // returns a string with the character in char escaped by a backslash
 assert(!String.prototype.hasOwnProperty('escape'), 'String.escape() already exists. See, they told you monkey patching was bad...')
-String.prototype.escape = function(char) {
-	char = '' + char
-	if(char.length > 1)
-		char = char.substring(0, 1)
+String.prototype.escape = function(escapeMe) {
+	escapeMe = '' + escapeMe
 	let remaining = this
 	let ret = ''
 	do {
-		if(remaining.startsWith(char))
+		if(remaining.startsWith(escapeMe))
 			ret = ret + '\\'
 		ret = ret + remaining.substring(0, 1)
 		remaining = remaining.skip(1)
