@@ -17,4 +17,4 @@ for(let test_result of test_result_array) {
 	}
 }
 console.log()
-console.log('✔')
+console.log(require('./assert').pass_string)
