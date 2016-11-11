@@ -90,10 +90,6 @@ const Dir = (path, object = {}) => {
 		fs.mkdirSync(object.path)
 	}
 
-	object.copy_to = dir => {
-		fs.copySync(object.path, dir.path)
-	}
-
 	object.delete = () => {
 		fs.removeSync(object.path)
 	}
