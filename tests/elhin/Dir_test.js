@@ -146,6 +146,10 @@ assert.equal(living_tests.dir.contains_file_path_recursive(empty_file.path), tru
 let non_existent_file = static_data_dir.get_contained_file('I do not exist.txt')
 assert.equal(living_tests.dir.contains_file_path_recursive(non_existent_file.path), false)
 
+// a file is not a directory
+let file_dir = Dir(empty_file.path)
+assert.equal(file_dir.exists(), false)
+
 // get_all_files() of empty dir
 let empty_dir = static_data_dir.get_contained_dir('empty dir');
 assert.equal(empty_dir.exists(), true)
@@ -165,7 +169,7 @@ assert.equal(living_test_file_array.containsTest(x => x.name === 'non_empty_php_
 
 // get_all_dirs()
 let living_test_dir_array = living_tests.dir.get_all_dirs()
-assert.equal(living_test_dir_array.length, 5)
+assert.greater_than(living_test_dir_array.length, 4)
 assert.equal(living_test_dir_array.containsTest(x => x.name === '.git'), true)
 assert.equal(living_test_dir_array.containsTest(x => x.name === 'elhin'), true)
 assert.equal(living_test_dir_array.containsTest(x => x.name === 'node_modules'), true)
