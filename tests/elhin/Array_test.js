@@ -1,8 +1,8 @@
 'use strict'
-const assert = require('../assert')
+const assert = require('../../assert')
 
 // testing Array monkey patch / extension methods
-require('../elhin/Array')
+require('../../elhin/Array')
 
 // containsTest()
 let empty_array = []

@@ -14,6 +14,7 @@ const Tests = (project_dir, object = {}) => {
 			const test_result = Test_result()
 			test_result.test_file = test_file
 			let shell_result = shell.run('node', [test_file.path])
+			test_result.shell_result = shell_result
 			test_result.assertion_results.push(shell_result.status === 0)
 			test_result_array.push(test_result)
 		}
