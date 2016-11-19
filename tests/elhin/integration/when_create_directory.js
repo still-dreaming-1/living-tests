@@ -20,8 +20,7 @@ const setup = () => {
 
 const tear_down_without_assertions_or_exceptions = () => {
 	test_data_dir = Test_data_dir()
-	if(test_data_dir.exists())
-		test_data_dir.delete()
+	test_data_dir.delete_if_exists()
 }
 
 // the directory should exist
