@@ -56,8 +56,13 @@ assert.equal(dir.exists(), true)
 // Dir.exists() should exist when it is the home directory
 assert.equal(Dir('/home').exists(), true)
 
-// Dir.exists() should not exist when it is a strangely named directory
-assert.equal(Dir('/idonotexistanywhereatall').exists(), false)
+// dir should not Dir.exists() when it is a strangely named directory
+let non_existent_dir = Dir('/idonotexistanywhereatall')
+assert.equal(non_existent_dir.exists(), false)
+if(non_existent_dir.exists() === false) { // this just prevents the test from doing damage if things are not as expected
+	assert.equal(non_existent_dir.delete_if_exists(), false)
+	assert.equal(non_existent_dir.exists(), false)
+}
 
 // Dir.get_contained_dir() should have the correct path
 dir = Dir('/some_dir')

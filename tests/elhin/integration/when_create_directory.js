@@ -34,4 +34,7 @@ const tear_down = () => {
 // the directory should exist
 setup()
 assert.equal(test_data_dir.exists(), true)
-tear_down()
+
+// Dir.delete_if_exists() deletes it
+assert.equal(test_data_dir.delete_if_exists(), true)
+assert.equal(test_data_dir.exists(), false)

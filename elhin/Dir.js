@@ -94,6 +94,14 @@ const Dir = (path, object = {}) => {
 		fs.removeSync(object.path)
 	}
 
+	object.delete_if_exists = () => {
+		if(object.exists()) {
+			object.delete()
+			return true
+		}
+		return false
+	}
+
 	object.is_subdir_of = dir => dir.has_subdir(Dir(object.path))
 
 	object.has_subdir = (dir) => {
