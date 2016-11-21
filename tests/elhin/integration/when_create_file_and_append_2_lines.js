@@ -92,7 +92,7 @@ assert.equal(lines[1], 'that other line')
 assert.equal(lines[2], '')
 tear_down()
 
-// can delete the dir even though it contains the file
+// can Dir.delete() the dir even though it contains the file
 setup()
 assert.equal(test_data_dir.exists(), true)
 test_data_dir.delete()

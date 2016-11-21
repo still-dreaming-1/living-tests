@@ -93,3 +93,19 @@ assert.equal(lines[1], 'that other line')
 assert.equal(lines[2], 'the third line')
 assert.equal(lines[3], '')
 tear_down()
+
+// can still Dir.delete() the dir
+setup()
+assert.equal(test_data_dir.exists(), true)
+test_data_dir.delete()
+assert.equal(test_data_dir.exists(), false)
+tear_down_without_assertions_or_exceptions()
+
+// Dir.delete_if_exists() deletes the dir
+setup()
+assert.equal(test_data_dir.exists(), true)
+assert.equal(test_data_dir.delete_if_exists(), true)
+assert.equal(test_data_dir.exists(), false)
+assert.equal(test_data_dir.delete_if_exists(), false)
+assert.equal(test_data_dir.exists(), false)
+tear_down_without_assertions_or_exceptions()
