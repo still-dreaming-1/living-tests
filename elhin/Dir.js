@@ -16,14 +16,15 @@ const Dir = (path, object = {}) => {
 	}
 
 	object.exists = () => {
+		let stats = null
 		try {
-			const stats = fs.statSync(object.path)
-			if(stats.isDirectory())
-				return true
-			return false
+			stats = fs.statSync(object.path)
 		} catch(e) {
 			return false
 		}
+		if(stats.isDirectory())
+			return true
+		return false
 	}
 
 	object.parent = () => {

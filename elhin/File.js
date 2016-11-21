@@ -11,14 +11,15 @@ const File = (path, object = {}) => {
 	object.name_without_extension = object.name.beforeLast('.')
 
 	object.exists = () => {
+		let stats = null
 		try {
-			let stats = fs.statSync(object.path)
-			if(stats.isFile())
-				return true
-			return false
+			stats = fs.statSync(object.path)
 		} catch(e) {
 			return false
 		}
+		if(stats.isFile())
+			return true
+		return false
 	}
 
 	object.create = () => {
