@@ -28,4 +28,9 @@ const tear_down_without_assertions_or_exceptions = () => {
 // the directory should not exist
 setup()
 assert.equal(test_data_dir.exists(), false)
+tear_down_without_assertions_or_exceptions()
+
+// Dir.delete_if_exists() should not do anything
+setup()
 assert.equal(test_data_dir.delete_if_exists(), false)
+assert.equal(test_data_dir.exists(), false)
