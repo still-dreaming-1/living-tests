@@ -27,14 +27,12 @@ const setup = () => {
 
 const tear_down_without_assertions_or_exceptions = () => {
 	test_data_dir = Test_data_dir()
-	if(test_data_dir.exists())
-		test_data_dir.delete()
+	test_data_dir.delete_if_exists()
 }
 
 const tear_down = () => {
 	test_data_dir = Test_data_dir()
-	if(test_data_dir.exists())
-		test_data_dir.delete()
+	test_data_dir.delete_if_exists()
 	assert.equal(test_data_dir.exists(), false)
 }
 
@@ -91,3 +89,17 @@ assert.equal(lines.length, 2)
 assert.equal(lines[0], 'I am a line!')
 assert.equal(lines[1], '') // this blank line exists because append_line() always adds a new line character
 tear_down()
+
+// can Dir.delete() the dir
+setup()
+assert.equal(test_data_dir.exists(), true)
+test_data_dir.delete()
+assert.equal(test_data_dir.exists(), false)
+tear_down_without_assertions_or_exceptions()
+
+// Dir.delete_if_exists() deletes the dir
+setup()
+assert.equal(test_data_dir.exists(), true)
+assert.equal(test_data_dir.delete_if_exists(), true)
+assert.equal(test_data_dir.exists(), false)
+tear_down_without_assertions_or_exceptions()
