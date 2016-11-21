@@ -5,9 +5,13 @@ const assert = require('../../assert')
 require('../../elhin/Array')
 
 // containsTest()
+const return_false = () => false // by assigning these to variables first and testing them, the code coverage in this file is increased
+assert.equal(return_false(), false)
+const return_true = () => true
+assert.equal(return_true(), true)
 let empty_array = []
-assert.equal(empty_array.containsTest(() => false), false)
-assert.equal(empty_array.containsTest(() => true), false) // empty arrays never contain
+assert.equal(empty_array.containsTest(return_false), false)
+assert.equal(empty_array.containsTest(return_true), false) // empty arrays never contain
 let array_with_true = [true]
 let array_with_false = [false]
 assert.equal(array_with_true.containsTest(() => false), false)
