@@ -3,7 +3,8 @@
 // when create() a directory
 
 const assert = require('../../../assert')
-const Dir = require('../../../elhin/File')
+const Dir = require('../../../elhin/Dir')
+const File = require('../../../elhin/File')
 const Living_tests = require('../../../Living_tests')
 
 let test_data_dir = null
@@ -28,6 +29,12 @@ const tear_down_without_assertions_or_exceptions = () => {
 // the directory should not exist
 setup()
 assert.equal(test_data_dir.exists(), false)
+tear_down_without_assertions_or_exceptions()
+
+// the dir is not a file
+setup()
+let file = File(test_data_dir.path)
+assert.equal(file.exists(), false)
 tear_down_without_assertions_or_exceptions()
 
 // Dir.delete_if_exists() should not do anything
