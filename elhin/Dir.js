@@ -3,7 +3,7 @@
 const Dir = (path, object = {}) => {
 	require('./String')
 	const File = require('./File')
-	const fs = require('fs-extra')
+	object.fs = require('fs-extra')
 
 	object.path = path
 	if(!object.path.endsWith('/'))
@@ -18,7 +18,7 @@ const Dir = (path, object = {}) => {
 	object.exists = () => {
 		let stats = null
 		try {
-			stats = fs.statSync(object.path)
+			stats = object.fs.statSync(object.path)
 		} catch(e) {
 			return false
 		}
@@ -55,9 +55,9 @@ const Dir = (path, object = {}) => {
 	}
 
 	object.get_all_files = () => {
-		return fs.readdirSync(object.path)
+		return object.fs.readdirSync(object.path)
 			.map(name => object.path + name)
-			.filter(path => fs.statSync(path).isFile())
+			.filter(path => object.fs.statSync(path).isFile())
 			.map(file_path => File(file_path))
 	}
 
@@ -69,9 +69,9 @@ const Dir = (path, object = {}) => {
 	}
 
 	object.get_all_dirs = () => {
-		return fs.readdirSync(object.path)
+		return object.fs.readdirSync(object.path)
 			.map(name => object.path + name)
-			.filter(path => fs.statSync(path).isDirectory())
+			.filter(path => object.fs.statSync(path).isDirectory())
 			.map(dir_path => Dir(dir_path))
 	}
 
@@ -88,11 +88,11 @@ const Dir = (path, object = {}) => {
 	object.get_files_with_extension_recursive = extension => object.get_all_files_recursive().filter(file => file.extension === extension)
 
 	object.create = () => {
-		fs.mkdirSync(object.path)
+		object.fs.mkdirSync(object.path)
 	}
 
 	object.delete = () => {
-		fs.removeSync(object.path)
+		object.fs.removeSync(object.path)
 	}
 
 	object.delete_if_exists = () => {

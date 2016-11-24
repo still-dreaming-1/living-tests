@@ -56,6 +56,17 @@ assert.equal(dir.exists(), true)
 // Dir.exists() should exist when it is the home directory
 assert.equal(Dir('/home').exists(), true)
 
+// dir does not Dir.exists() when something exists at that path, so no exception is thrown, but it is not a directory
+dir = Dir('any path will do')
+let fake_fs = {}
+fake_fs.statSync = () => {
+	let stats = {}
+	stats.isDirectory= () => false
+	return stats
+}
+dir.fs = fake_fs
+assert.equal(dir.exists(), false)
+
 // dir should not Dir.exists() when it is a strangely named directory
 let non_existent_dir = Dir('/idonotexistanywhereatall')
 assert.equal(non_existent_dir.exists(), false)
