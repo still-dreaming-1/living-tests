@@ -4,6 +4,7 @@
 
 const assert = require('../../../assert')
 const File = require('../../../elhin/File')
+const Dir = require('../../../elhin/Dir')
 const Living_tests = require('../../../Living_tests')
 
 let test_data_dir = null
@@ -56,6 +57,12 @@ tear_down()
 setup()
 let all_files_non_recursive = test_data_dir.get_all_files()
 assert.equal(all_files_non_recursive.length, 0)
+tear_down()
+
+// the deleted file is not a dir
+setup()
+let fileDir = Dir(file.path)
+assert.equal(fileDir.exists(), false)
 tear_down()
 
 // no directories exist when using get_all_dirs()

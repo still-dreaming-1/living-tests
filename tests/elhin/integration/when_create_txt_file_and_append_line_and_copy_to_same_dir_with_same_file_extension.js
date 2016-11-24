@@ -3,8 +3,8 @@
 // when create() a txt file and append_line() and copy_to() the same dir with the same file extension
 
 const assert = require('../../../assert')
-const File = require('../../../elhin/File')
 require('../../../elhin/Array')
+const File = require('../../../elhin/File')
 const Dir = require('../../../elhin/Dir')
 const Living_tests = require('../../../Living_tests')
 
@@ -56,6 +56,18 @@ tear_down()
 // the copied file exists
 setup()
 assert.equal(copied_file.exists(), true)
+tear_down()
+
+// the original created file is not a dir
+setup()
+let fileDir = Dir(created_file.path)
+assert.equal(fileDir.exists(), false)
+tear_down()
+
+// the copied file is not a dir
+setup()
+fileDir = Dir(copied_file.path)
+assert.equal(fileDir.exists(), false)
 tear_down()
 
 // only the 2 txt files exist when using get_all_files()

@@ -3,8 +3,8 @@
 // when create() a txt file and append_line() and copy_to() subdir with the same file extension
 
 const assert = require('../../../assert')
-const File = require('../../../elhin/File')
 require('../../../elhin/Array')
+const File = require('../../../elhin/File')
 const Dir = require('../../../elhin/Dir')
 const Living_tests = require('../../../Living_tests')
 
@@ -67,6 +67,18 @@ setup()
 let all_files_non_recursive = test_data_dir.get_all_files()
 assert.equal(all_files_non_recursive.length, 1)
 assert.equal(all_files_non_recursive.containsTest((x) => x.path === created_file.path), true)
+tear_down()
+
+// the original created file is not a dir
+setup()
+let fileDir = Dir(created_file.path)
+assert.equal(fileDir.exists(), false)
+tear_down()
+
+// the copied file is not a dir
+setup()
+fileDir = Dir(copied_file.path)
+assert.equal(fileDir.exists(), false)
 tear_down()
 
 // the subdir exists when using get_all_dirs()
