@@ -36,6 +36,12 @@ const tear_down = () => {
 	assert.equal(test_data_dir.exists(), false)
 }
 
+// the dir is not a file
+setup()
+let dirFile = File(test_data_dir.path)
+assert.equal(dirFile.exists(), false)
+tear_down()
+
 setup()
 // only the 1 txt file exists when using get_all_files()
 let all_files_non_recursive = test_data_dir.get_all_files()

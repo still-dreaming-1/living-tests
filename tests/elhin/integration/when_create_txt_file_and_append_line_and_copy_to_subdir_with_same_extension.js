@@ -51,6 +51,12 @@ const tear_down = () => {
 	assert.equal(test_data_dir.exists(), false)
 }
 
+// the test data dir is not a file
+setup()
+let dirFile = File(test_data_dir.path)
+assert.equal(dirFile.exists(), false)
+tear_down()
+
 // the copied file exists
 setup()
 assert.equal(copied_file.exists(), true)
