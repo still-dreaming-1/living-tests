@@ -60,9 +60,9 @@ assert.equal(Dir('/home').exists(), true)
 dir = Dir('any path will do')
 let fake_fs = {}
 fake_fs.statSync = () => {
-	let stats = {}
-	stats.isDirectory= () => false
-	return stats
+	return {
+		isDirectory: () => false
+	}
 }
 dir.fs = fake_fs
 assert.equal(dir.exists(), false)
