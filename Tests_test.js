@@ -1,5 +1,5 @@
 'use strict'
- // this test file is not inside the tests directory because that would cause infinite recursion of testing
+// this test file is not inside the tests directory because that would cause infinite recursion of testing
 
 require('./elhin/Array')
 const assert = require('./assert')
