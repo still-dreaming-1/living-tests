@@ -1,11 +1,10 @@
 'use strict'
 
 const Living_tests = (object = {}) => {
-	require('./elhin/String')
-	const Dir = require('./elhin/Dir')
-
-	object.dir = Dir(__dirname)
-
+	object.elhin = require('./elhin/Elhin')()
+	object.dir = object.elhin.Dir(__dirname)
+	object.Runner = require('./Runner')
+	object.Tests = require('./Tests')
 	return object
 }
 
