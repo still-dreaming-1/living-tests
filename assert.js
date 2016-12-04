@@ -1,9 +1,9 @@
 'use strict'
 
-const original_assert = require('assert')
-const chai_assert = require('chai').assert
-
 const assert = (object = {}) => {
+	const original_assert = require('assert')
+	const chai_assert = require('chai').assert
+
 	object.pass_string = '✔' // returning this after an assertion does not fail is needed because the REPL will output whatever the assertion returns.
 
 	// A strict equality assertion. Testing tools should use strict equality comparison as the default, not the other way around.
