@@ -5,6 +5,7 @@ const Elhin = (object = {}) => {
 	object.Dir = require('./Dir')
 	object.Position = require('./Position')
 	object.Shell = require('./Shell')
+	object.Console = () => console
 	return object
 }
 
