@@ -100,7 +100,7 @@ let child = parent.get_contained_dir('I do not exist')
 assert.equal(child.exists(), false)
 assert.equal(child.is_subdir_of(parent), false)
 
-// Dir.has_subdir() it is false when parent has no dirs
+// Dir.has_subdir() is false when parent has no dirs
 parent = Living_tests().dir.get_contained_dir('static test data')
 assert.equal(parent.exists(), true)
 child = parent.get_contained_dir('I do not exist')
