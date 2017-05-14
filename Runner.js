@@ -9,18 +9,19 @@ const Runner = (object = {}) => {
 		const test_file_array = tests.collect_files()
 		const test_result_array = tests.run(test_file_array)
 
-		const con = object.living_tests.elhin.Console()
+        // yes this is a badly named variable, but console is already taken
+		const my_console = object.living_tests.elhin.Console()
 		for(let test_result of test_result_array) {
 			if(test_result.overall_result()) {
-				con.log('pass: ' + test_result.test_file.path)
+				my_console.log('pass: ' + test_result.test_file.path)
 			} else {
-				con.log('fail: ' + test_result.test_file.path)
-				con.log(test_result)
+				my_console.log('fail: ' + test_result.test_file.path)
+				my_console.log(test_result.shell_result.output)
 				process.exit()
 			}
 		}
-		con.log()
-		con.log(require('./assert').pass_string)
+		my_console.log()
+		my_console.log(require('./assert').pass_string)
 	}
 	return object
 }
