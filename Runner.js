@@ -16,7 +16,14 @@ const Runner = (object = {}) => {
 				my_console.log('pass: ' + test_result.test_file.path)
 			} else {
 				my_console.log('fail: ' + test_result.test_file.path)
-				my_console.log(test_result.shell_result.output)
+                let fail_output = ''
+                for(let output of test_result.shell_result.output) {
+                    output = String(output)
+                    if(output.length > 0) {
+                        fail_output = fail_output + output
+                    }
+                }
+				my_console.log(fail_output)
 				process.exit()
 			}
 		}
