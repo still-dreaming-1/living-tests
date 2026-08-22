@@ -1,6 +1,6 @@
 # living-tests [![Join the chat at https://gitter.im/still-dreaming-1/living-tests](https://badges.gitter.im/still-dreaming-1/living-tests.svg)](https://gitter.im/still-dreaming-1/living-tests?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-I no longer use or maintain this. I don't recommend installing it. Let me know if you would like to me to keep maintaining it.
+I no longer use or maintain this because I don't do enough JavaScript development for it to be worth it for me. Also, my programming sensibilities have continued to change over time, so I would have to re-evaluate all of it in that light if I wanted to use it as a serious, daily tool. I don't recommend installing it. Let me know if you would like to me to keep maintaining it.
 
 Bring your Node.js tests alive with living-tests.
 
